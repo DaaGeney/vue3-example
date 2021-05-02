@@ -17,7 +17,6 @@ export default {
         }
         watch(part2,
             (value, oldValue) => {
-            // side effect
             message.value = `${part1.value} ${value}`;
             console.log(oldValue, 'old value')
         })
@@ -26,7 +25,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>
