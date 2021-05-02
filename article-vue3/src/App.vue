@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import HelloWorld from './components/props/parents/Parent.vue'
+import HelloWorld from './components/watch/Watch.vue'
 
 export default {
   name: 'App',
