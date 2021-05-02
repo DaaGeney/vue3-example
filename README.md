@@ -2,7 +2,7 @@
 
 Actuamente tenemos a nuest alcance la version 3 de vue (Beta), una version que trae cambios interesantes que vienen con el objetivo de dar mas manejabilidad a los amantes de este framework progresivo. En este articulo te daremos una entrada a las principales novedades que trae esta nueva version y, acompañada de algunos ejemplos de como han cambiado las cosas en este framework. Para abarcar esto explicaremos los cambios mas importantes, empezando desde la reactividad en vue 3 hasta la nueva composition API, que se puede entender como el plato fuerte.
 
-Para el desarrollo hay que mencionar que actualmente existen multiples formas de usar Vue en nuestros projectos, entre las que destacan en uso de cdn, npm o la instalacion del cli. Para los ejemplos aquí presentados se hará uso del CLI de vue, con la estructura:
+Para el desarrollo hay que mencionar que actualmente existen multiples formas de usar Vue en nuestros projectos, entre las que destacan en uso de cdn, npm o la instalacion del cli. Para los ejemplos aquí presentados se hará uso del CLI de vue, con la estructura de single file:
 
 ![Estructure vue](/article-vue3/assets/estructure.png)
 
@@ -24,6 +24,7 @@ En el ejemplo vemos como tenemos un estado local llamado message que al estar in
 
 Aparte de esto, debemos recordar que vue 2 nos ofrece observadores para seguir el comportamiento de propiedades especificas, tales como watch and computed. Watch nos permite hacer total seguimiento a una propiedad y realizar una accion cada que esta varíe mientras que computed nos permite crear una propiedad conformada por dos variables y actualizarse cada vez que una de estas se vea modificada. 
 En el siguiente ejemplo tenemos un nombre completo compuesto por a firsName and lastName, vemos la forma de manipulas esto directamente con un computed o por watch.
+
 ![watch-computed](/article-vue3/assets/watch-computed.png)
 
 El problema está en que en la estructura actual de Vue elcodigo puede quedar muy poco legible y dificil de entender,tal como se muestra a continuación.
@@ -33,5 +34,30 @@ El problema está en que en la estructura actual de Vue elcodigo puede quedar mu
 
 Vue 3 nos imvita a usar estas dos propiedades directamente dentro del setup, mejorando mucho la legibilidad pues no implica la creacion de secciones unitarias para cada variable por fuera del metodo principal. 
 veamos la forma de escribir el ejemplo anterior con la logica de vue 3.
+
 ![watch-computed](/article-vue3/assets/watch-computes-vue3.png)
+
+como vemos, el elemento fullname manejado por un computed pasa de ser manipulado como una funcion independiente a ser directamente nombrada como un atributo dentro del setup y directamente se le asigna el resultado de una funcion. 
+
+### Methods 
+De la misma forma en que vue 3 ha manipulado los wath and computed lo ha hecho con los metodos, actualmente vue 2 obliga a que estos esten definidos dentro de la seccion methods dando como resultado que todos estos podian ser llamados desde el template de forma magica. Siguiendo con la nueva filosofia de vue, estos tambien pasan a hacer parte del metodo setup y todos aquellos que requieran ser usados desde el template deberan ser definidos en el return.
+Esta nueva forma de uso da via libre a que las funciones flechas entren en funcionamiento, ya que debido a la forma que se trataban en vue 2 su uso era casi impensado. 
+
+## Composition API
+
+Como hemo visto a lo largo de este articulo, desde el metodo setup hasta los ref hacen parte de esta nueva composition API, que hace una fuerte apuesta por darte total control al desarrollador a cerca de sobre que se comportamiento tendra cada cosa y sobre que se puede usar en el template y que no. La nueva composition api da un giro total en la forma de ver el codigo, mejorando desde la parte visual hasta la parte funcional en algunos casos (el ejemplo mas claro es el reemplazo de data por setup) pero aun así, le da tiempo al cambio a los desarrolladores al no dejar deprecated lo que se conoce actualmente y dando la posibilidad de usar tanto la options APi como esta nueva compsition. Desde un punto de vita mas general, estos son algunos de los campios princupales que se enuentram: 
+
+### ciclo de vida de los componentes
+Actualmente los ciclos de vida, como todo en vue 2, estan aislados a su propia section: 
+
+![lifecycle](/article-vue3/assets/lifecycle-vue2.png)
+
+En vue 3 estos sufren un cambio minimo, pues su nombramiento sufre la agregacion de on antes de su nombre actual y pasan a ser invocados dentro del setup, de resto se puede asegurar que su funcionamiento sigue siendo el mismo a excepcion de beforeCreate and created ya que estos desaparecen y en la pagina de vue se nos indica lo siguiente: 
+_*Because setup is run around the beforeCreate and created lifecycle hooks, you do not need to explicitly define them. In other words, any code that would be written inside those hooks should be written directly in the setup function.*_
+
+![lifecycle](/article-vue3/assets/new-lifecycle.png)
+
+## Conclusion
+Vue 3 trae importantes mejoras en su forma de crear componentes, la composition API apunta a darle total manejo al desarrollador acerca de lo que está haciendo en todo momento, ademas de eso, al ser reescrito totalmente con typescript le da total soporte a este y abre la puerta a los amantes a este lenguaje de programacion. 
+ademas la inclusion del metodo setup es una apuesta atrevida ya que invita a usar todo en el mismo sitio, lo cual puede que no a todos los desarrolladores les agrade. Podemos asegurar que vue apuesta a lo grande al no quedarse atras ante los hooks de react (muchas funciones de la composition API se sienten basadas en estos) y el renderizador Ivy de angular y nos queda esperar por su lanzamiento oficial a ver como su integracion del nuevo vuex 4 y todo el ecosistema conocido para vue logra hacer que mas personas se una a este team.
 
