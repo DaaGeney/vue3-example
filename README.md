@@ -4,7 +4,7 @@ Actuamente tenemos a nuest alcance la version 3 de vue (Beta), una version que t
 
 Para el desarrollo hay que mencionar que actualmente existen multiples formas de usar Vue en nuestros projectos, entre las que destacan en uso de cdn, npm o la instalacion del cli. Para los ejemplos aquí presentados se hará uso del CLI de vue, con la estructura:
 
-![GitHub Logo](/article-vue3/assets/estructure.png)
+![Estructure vue](/article-vue3/assets/estructure.png)
 
 Donde template contiene todas las etiquetas html y los elementos del Dom, scripts contiene la logica y styles la hoja de estilos de la aplicacion.
 
@@ -12,10 +12,26 @@ Donde template contiene todas las etiquetas html y los elementos del Dom, script
 En vue 3 se implementa un cambio brutal en la forma de manejar estados locales, este nos presenta un cambio en su filosofia pasando de 'todo es reactivo' a 'indica lo reactivo', ¿De qué hablamos? miren a continuacion. 
 Actualmente vue 2 posee la funcion data que es donde se almacenan todas las variables locales que manejará nuestra aplicacion, esta funcion tiene la caracteristica que todo aquellos que este dentro es reactivo (basta con definirlo dentro de esta funcion para que lo sea), es decir, que un cambio en estas automaticamente modificara el bundle de nuestra aplicacion. 
 
-![GitHub Logo](/article-vue3/assets/data-method.png)
+![data](/article-vue3/assets/data-method.png)
 
 En la imagen anterior tenemos que el estado 'message' es reactivo, lo cual implica que un simple cambio en este se verá reflejado en el dom, el inconveniente viene cuando tenemos muchos elementos dentro de data() todos siendo reactivos al mismo tiempo, esto hace que el desarrollador pierda un poco de control sobre lo que realmente quiere que sea dinamico y lo que no, vue 3 presenta uno de los cambios mas notables al reemplazar completamente el metodo data por setup(), y con sigo la forma en la que usan los estados locales. En la composition API (de quien hablaremos a fondo mas adelante) se presentan algunas funciones como lo son 'ref' y 'reactive', que son aquellas que nos permiten definidir cuando queremos que una variable sea reactiva en nuestra aplicacion. *ref* nos permite definir variables reactivas de un solo valor, es decir, todas aquellas variables de tipo primitivo mientras que la funcion *reactive* nos permite crear todo un objeto reactivo, es decir, nos proporciona un objeto en el que la modificacion de cada una de sus propiedades se verán reflejadas en todas las secciones de nuestro codigo donde lo llamemos. Ademas de esto, la funcion setup nos permite devolver aquellas variables que realmente deseamos usar directamente en el template al incluirlas en el return. 
 
-![GitHub Logo](/article-vue3/assets/setup-method.png)
+![setup](/article-vue3/assets/setup-method.png)
 
 En el ejemplo vemos como tenemos un estado local llamado message que al estar incluido dentro del return puede ser utilizado desde el template de nuestra aplicacio, y al cual al definirlo con la funcion ref nos garantiza que cualquier modificacion que sufra por medio su propiedad value (message.value) se verá reflejado en todo aquel lugar en nuestro codigo donde este sea usado. 
+
+### Watch and computed
+
+Aparte de esto, debemos recordar que vue 2 nos ofrece observadores para seguir el comportamiento de propiedades especificas, tales como watch and computed. Watch nos permite hacer total seguimiento a una propiedad y realizar una accion cada que esta varíe mientras que computed nos permite crear una propiedad conformada por dos variables y actualizarse cada vez que una de estas se vea modificada. 
+En el siguiente ejemplo tenemos un nombre completo compuesto por a firsName and lastName, vemos la forma de manipulas esto directamente con un computed o por watch.
+![watch-computed](/article-vue3/assets/watch-computed.png)
+
+El problema está en que en la estructura actual de Vue elcodigo puede quedar muy poco legible y dificil de entender,tal como se muestra a continuación.
+
+![vue ref](https://v3.vuejs.org/images/options-api.png)
+
+
+Vue 3 nos imvita a usar estas dos propiedades directamente dentro del setup, mejorando mucho la legibilidad pues no implica la creacion de secciones unitarias para cada variable por fuera del metodo principal. 
+veamos la forma de escribir el ejemplo anterior con la logica de vue 3.
+![watch-computed](/article-vue3/assets/watch-computes-vue3.png)
+
