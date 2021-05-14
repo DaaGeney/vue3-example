@@ -1,7 +1,9 @@
 <template>
-    <p> {{ msg }}</p>
-    <input v-model="dataInput" />
-    <button @click="onUpdateValue()"> change value </button>
+    <div>
+        <p> {{ msg }}</p>
+        <input v-model="dataInput" />
+        <button @click="onUpdateValue()"> change value </button>
+    </div>
 </template>
 
 <script>

@@ -6,13 +6,10 @@
 import { ref } from 'vue';
 export default {
     setup() {
-        const message = ref("Hello World since vue 3")
+        const message = ref("Hello World from vue 3")
         return { message }
-    },
+    }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
+<style scoped />
