@@ -6,7 +6,7 @@
 import { ref } from 'vue';
 export default {
     setup() {
-        const message = ref("Hello World since vue 3")
+        const message = ref("Hello World from vue 3")
         return { message }
     }
 }

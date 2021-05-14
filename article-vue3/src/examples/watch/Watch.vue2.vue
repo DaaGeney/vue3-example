@@ -11,8 +11,8 @@ export default {
     data () {
         return {
             part1: 'Hello world',
-            part2: 'since vue 2',
-            message: 'Hello since vue 2',
+            part2: 'from vue 2',
+            message: 'Hello from vue 2',
             dataInput: ''
         }
     },

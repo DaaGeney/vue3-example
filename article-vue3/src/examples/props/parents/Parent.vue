@@ -11,7 +11,7 @@ export default {
         Child
     },
     setup() {
-        const message = ref("Hello World since vue 3")
+        const message = ref("Hello World from vue 3")
         const onUpdateValue = (newMessage) => {
             message.value = newMessage
         }

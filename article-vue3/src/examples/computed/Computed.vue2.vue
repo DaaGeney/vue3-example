@@ -10,7 +10,7 @@ export default {
   data () {
     return {
       part1: 'Hello world',
-      part2: 'since vue 2'
+      part2: 'from vue 2'
     }
   },
   computed: {
@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         onUpdateValue() {
-            this.part2 = 'the second part was update since vue 2'
+            this.part2 = 'the second part was update from vue 2'
         }
     }
 }

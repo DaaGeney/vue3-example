@@ -1,14 +1,32 @@
-<template>
-  <HelloWorld />
+<template >
+    <FormInput />
 </template>
 
 <script>
-import HelloWorld from './components/watch/Watch.vue'
+import FormInput from './components/Challenge.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+    name: 'App',
+    components: {
+        FormInput
+    },
+    data: () => ({
+        tasks: []
+    }),
+    methods: {
+        createTask(task) {
+            console.log(this.tasks);
+            this.tasks.push(task);
+            console.log(this.tasks);
+        },
+        completeTask(taskText) {
+            for (let i = 0; i < this.tasks.length; i++) {
+                let task = this.tasks[i];
+                if (taskText === task.text) {
+                    task.completed = !task.completed;
+                }
+            }
+        }
   }
 }
 </script>
@@ -21,5 +39,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-image: url('~@/assets/CelerikLogo.png');
 }
 </style>

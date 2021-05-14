@@ -9,9 +9,9 @@ import { ref, watch } from 'vue';
 export default {
     setup() {
         const part1 = ref("Hello World");
-        const part2 = ref("since vue 3");
+        const part2 = ref("from vue 3");
         const dataInput = ref("");
-        const message = ref('Hello World since vue 3');
+        const message = ref('Hello World from vue 3');
         const onUpdateValue = () => {
             part2.value = dataInput.value;
         }
