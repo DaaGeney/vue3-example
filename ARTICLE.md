@@ -61,6 +61,6 @@ Definitely the Vue team understood that they were filling the tree with many opt
 Vue 3 brings important improvements in its way of creating components, the composition API aims to give full control to the developer about what he is doing at all times, in addition to that, being totally rewritten with typescript gives full support to this and opens the door to lovers of this programming language. In addition, the inclusion of the setup method is a daring bet since it invites you to use everything in the same place, which may not be pleasing to all developers. We can ensure that vue bets big by not falling behind the react hooks (many composition API functions feel based on these) and angular's ivy renderer. We can wait for its official launch to see how with the integration of the new vuex 4 and the entire known ecosystem of vue they manage to make more developers prefer to be in this team.
 
 # Challenge.
-We have a single file component wrote in vue 2, we invite you to try make it with vue 3. You can use the elements of  example's folder.
+We have a single file component written in vue 2, we invite you to try make it with vue 3. You can use the elements of  examples folder.
 [Go to challenge](/article-vue3/src/components/Challenge.vue)
 
