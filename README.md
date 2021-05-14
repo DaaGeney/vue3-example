@@ -22,7 +22,7 @@ In the example we see how it has a local state called message and due to it is i
 
 ### Watch and computed
 
-we must remember that vue 2 offers us observers to follow the behavior of specific properties, such as watch and computed. Watch allows us to fully monitor a property and perform an action each time it changes, while computed allows us to create a property made up of two variables and update each time one of these is modified. In the following example we have a full name composed of a firsName and lastName, we see how you manipulate this directly with a computed or by watch. .
+We must remember that vue 2 offers us observers to follow the behavior of specific properties, such as watch and computed. Watch allows us to fully monitor a property and perform an action each time it changes, while computed allows us to create a property made up of two variables and update each time one of these is modified. In the following example we have a full name composed of a firsName and lastName, we see how you manipulate this directly with a computed or by watch. .
 
 ![watch-computed](/article-vue3/assets/watch-computed.png)
 
@@ -54,7 +54,7 @@ _*Because setup is run around the beforeCreate and created lifecycle hooks, you 
 
 ### Tree Shaking
 
-Definitely the Vuee team understood that they were filling the tree with many optional things that the developers would not use, such as all the life cycle events, all the reactive variables and many of the functionalities that they have; This is why they choose to make developers feel obliged to import everything they want to use, which clearly makes us have a much cleaner bundle compared to vue 2.
+Definitely the Vue team understood that they were filling the tree with many optional things that the developers would not use, such as all the life cycle events, all the reactive variables and many of the functionalities that they have; This is why they choose to make developers feel obliged to import everything they want to use, which clearly makes us have a much cleaner bundle compared to vue 2.
 
 
 ## Conclusion
