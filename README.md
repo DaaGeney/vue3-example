@@ -55,13 +55,15 @@ Actualmente los ciclos de vida, como todo en vue 2, estan aislados a su propia s
 En vue 3 estos sufren un cambio minimo, pues su nombramiento sufre la agregacion de on antes de su nombre actual y pasan a ser invocados dentro del setup, de resto se puede asegurar que su funcionamiento sigue siendo el mismo a excepcion de beforeCreate and created ya que estos desaparecen y en la pagina de vue se nos indica lo siguiente: 
 _*Because setup is run around the beforeCreate and created lifecycle hooks, you do not need to explicitly define them. In other words, any code that would be written inside those hooks should be written directly in the setup function.*_
 
+
+![lifecycle](/article-vue3/assets/new-lifecycle.png)
+
 ### Tre Shaking
 
 Definitivamente el equipo de Vue se dio cuenta que estaban llenando el arbol con muchas cosas opcionales que los desarrolladores no usarian, tal como todos los eventos del ciclo de vida, todas las variables reactivas y muchas de las funcionalidades que poseen; es por esto que esta vez optan por hacer que los desarrolladores se vean en la obligacion de importar todo aquello que deseen usar, lo cual claramente hace que tengamos un bundle mucho mas limpio en comparacion a vue 2.
 
-![lifecycle](/article-vue3/assets/new-lifecycle.png)
 
 ## Conclusion
 Vue 3 trae importantes mejoras en su forma de crear componentes, la composition API apunta a darle total manejo al desarrollador acerca de lo que está haciendo en todo momento, ademas de eso, al ser reescrito totalmente con typescript le da total soporte a este y abre la puerta a los amantes a este lenguaje de programacion. 
-ademas la inclusion del metodo setup es una apuesta atrevida ya que invita a usar todo en el mismo sitio, lo cual puede que no a todos los desarrolladores les agrade. Podemos asegurar que vue apuesta a lo grande al no quedarse atras ante los hooks de react (muchas funciones de la composition API se sienten basadas en estos) y el renderizador Ivy de angular y nos queda esperar por su lanzamiento oficial a ver como su integracion del nuevo vuex 4 y todo el ecosistema conocido para vue logra hacer que mas personas se una a este team.
+ademas la inclusion del metodo setup es una apuesta atrevida ya que invita a usar todo en el mismo sitio, lo cual puede que no a todos los desarrolladores les agrade. Podemos asegurar que vue apuesta a lo grande al no quedarse atras ante los hooks de react (muchas funciones de la composition API se sienten basadas en estos) y el renderizador Ivy de angular. Nos queda esperar por su lanzamiento oficial a ver como con la integracion del nuevo vuex 4 y todo el ecosistema conocido de vue logran hacer que ma sdesarrolladores prefierean estar en este team.
 
